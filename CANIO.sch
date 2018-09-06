@@ -16101,6 +16101,52 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="Resistor1W">
+<packages>
+<package name="RESISTOR1W">
+<pad name="P$1" x="0" y="0" drill="0.6" shape="long"/>
+<pad name="P$2" x="25" y="0" drill="0.6" shape="long"/>
+<wire x1="0.05" y1="0.05" x2="0" y2="0.05" width="0.127" layer="51"/>
+<wire x1="0" y1="0.05" x2="0" y2="5" width="0.127" layer="51"/>
+<wire x1="0" y1="5" x2="25" y2="5" width="0.127" layer="51"/>
+<wire x1="25" y1="5" x2="25" y2="-5" width="0.127" layer="51"/>
+<wire x1="25" y1="-5" x2="0" y2="-5" width="0.127" layer="51"/>
+<wire x1="0" y1="-5" x2="0" y2="0" width="0.127" layer="51"/>
+<text x="0" y="6.35" size="1.27" layer="21">&gt;NAME</text>
+<text x="0" y="-7.62" size="1.27" layer="21">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="RESISTOR1W">
+<pin name="RW1" x="-15.24" y="0" length="middle"/>
+<pin name="RW2" x="15.24" y="0" length="middle" rot="R180"/>
+<wire x1="-10.16" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<text x="-10.16" y="7.62" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-7.62" size="1.778" layer="95">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="RESISTOR1W" prefix="R" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="RESISTOR1W" x="27.94" y="-15.24"/>
+</gates>
+<devices>
+<device name="" package="RESISTOR1W">
+<connects>
+<connect gate="G$1" pin="RW1" pad="P$1"/>
+<connect gate="G$1" pin="RW2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -16138,13 +16184,13 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="B45181A" value="0.01u"/>
 <part name="PS" library="con-wago-508" library_urn="urn:adsk.eagle:library:196" deviceset="W237-02P" device=""/>
 <part name="EV" library="con-wago-508" library_urn="urn:adsk.eagle:library:196" deviceset="W237-02P" device=""/>
+<part name="R7" library="Resistor1W" deviceset="RESISTOR1W" device=""/>
+<part name="R8" library="Resistor1W" deviceset="RESISTOR1W" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="10.16" y="40.64" size="1.778" layer="91">TODO: Create resistor</text>
 <text x="10.16" y="35.56" size="1.778" layer="91">TODO: Create condenser</text>
-<text x="10.16" y="25.4" size="1.778" layer="91">TODO: Create resistor</text>
 <text x="76.2" y="40.64" size="1.778" layer="91">TODO: Create resistor</text>
 <text x="10.16" y="55.88" size="1.778" layer="91">TODO: Add comp. values</text>
 <text x="-2.54" y="66.04" size="1.778" layer="91">VOLTAGE REGULATOR</text>
@@ -16154,8 +16200,8 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <text x="139.7" y="17.78" size="1.778" layer="91">EV: ELECTROVÁVULA</text>
 </plain>
 <instances>
-<instance part="X1" gate="-1" x="2.54" y="43.18"/>
-<instance part="X1" gate="-2" x="2.54" y="22.86"/>
+<instance part="X1" gate="-1" x="-10.16" y="43.18"/>
+<instance part="X1" gate="-2" x="-10.16" y="22.86"/>
 <instance part="D1" gate="1" x="43.18" y="43.18"/>
 <instance part="D2" gate="1" x="53.34" y="43.18"/>
 <instance part="D3" gate="1" x="53.34" y="33.02"/>
@@ -16186,6 +16232,8 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <instance part="PS" gate="-2" x="287.02" y="53.34" rot="R180"/>
 <instance part="EV" gate="-1" x="287.02" y="38.1" rot="R180"/>
 <instance part="EV" gate="-2" x="287.02" y="43.18" rot="R180"/>
+<instance part="R7" gate="G$1" x="10.16" y="22.86"/>
+<instance part="R8" gate="G$1" x="10.16" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -16199,7 +16247,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="30.48" y1="43.18" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="50.8" x2="48.26" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="50.8" x2="48.26" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="43.18" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="43.18" x2="25.4" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="R8" gate="G$1" pin="RW2"/>
+<wire x1="25.4" y1="43.18" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
+<junction x="25.4" y="43.18"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -16209,7 +16260,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <wire x1="45.72" y1="33.02" x2="48.26" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="33.02" x2="50.8" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="33.02" x2="48.26" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="22.86" x2="22.86" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="22.86" x2="25.4" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="RW2"/>
+<wire x1="25.4" y1="22.86" x2="22.86" y2="22.86" width="0.1524" layer="91"/>
+<junction x="25.4" y="22.86"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -16324,7 +16378,6 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <pinref part="R4" gate="G$1" pin="2"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <pinref part="C2" gate="G$1" pin="+"/>
-<pinref part="C2" gate="G$1" pin="+"/>
 <wire x1="228.6" y1="71.12" x2="226.06" y2="71.12" width="0.1524" layer="91"/>
 <junction x="226.06" y="71.12"/>
 <wire x1="226.06" y1="71.12" x2="223.52" y2="71.12" width="0.1524" layer="91"/>
@@ -16346,8 +16399,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 </segment>
 <segment>
 <pinref part="X1" gate="-1" pin="KL"/>
-<wire x1="7.62" y1="43.18" x2="7.62" y2="48.26" width="0.1524" layer="91"/>
-<label x="7.62" y="48.26" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="43.18" x2="-5.08" y2="48.26" width="0.1524" layer="91"/>
+<label x="-5.08" y="48.26" size="1.778" layer="95"/>
+<pinref part="R8" gate="G$1" pin="RW1"/>
+<junction x="-5.08" y="43.18"/>
 </segment>
 </net>
 <net name="N$12" class="0">
@@ -16382,8 +16437,10 @@ BF959 corrected 2008.03.06&lt;br&gt;</description>
 <net name="PS2" class="0">
 <segment>
 <pinref part="X1" gate="-2" pin="KL"/>
-<wire x1="7.62" y1="22.86" x2="7.62" y2="30.48" width="0.1524" layer="91"/>
-<label x="7.62" y="30.48" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="22.86" x2="-5.08" y2="30.48" width="0.1524" layer="91"/>
+<label x="-5.08" y="30.48" size="1.778" layer="95"/>
+<pinref part="R7" gate="G$1" pin="RW1"/>
+<junction x="-5.08" y="22.86"/>
 </segment>
 <segment>
 <pinref part="EV" gate="-2" pin="KL"/>
